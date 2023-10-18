@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" type="text/css" href="/signup.css">
+</head>
+<body>
+    <h1>Sign Up</h1>
+    
+    <form action="/signup" method="post">
+        <input placeholder="First Name" name="firstName" type="text" value="{{ firstName }}">
+        <input placeholder="Last Name" name="lastName" type="text" value="{{ lastName }}">
+        <input placeholder="Email" name="email" type="text" value="{{ email }}">
+        <input placeholder="Password" name="password" type="password" value="{{ password }}">
+
+        <div class="success">{{successMessage}}</div>
+        
+        <div class="error">{{errorMessage}}</div>
+
+        <br>
+        
+        <input class="sub" type="submit" value="Sign Up"{{#if isDisabled}} disabled{{/if}}>
+        
+        <a href="/">Go back to login page</a>
+
+    </form>
+
+<script>
+  {{#if isDisabled}}
+  // Redirect to login page after 3 seconds
+  setTimeout(() => {
+      window.location.href = "/login";
+  }, 3000);
+  {{/if}}
+</script>
+
+</body>
+</html>
